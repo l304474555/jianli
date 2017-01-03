@@ -1,0 +1,27 @@
+.txt{
+	font-size: 33px;
+	color: saddlebrown;
+font-family: Broadway BT;
+font-weight: bold;
+border-style: solid double groove ridge;	
+	font-weight: bolder;
+	padding: 40px;
+	text-shadow: 10px 100px 100px #ff000;
+}
+.sh{
+	border-image: url(../img/2.jpg) 35 25 25 15;
+
+	font-size: 55px;
+	text-shadow: 5px 5px 5px #123456;
+	color: #123456;
+	text-align: center;
+}
+.xi{border-width:50px ;
+     color: burlywood;
+     font-size: 66px;
+	padding: 40px 40px 40px 40px;
+	border-image: url(../img/1.jpg) ;
+	text-align: center;
+	font-family: "agency fb";
+	
+}
