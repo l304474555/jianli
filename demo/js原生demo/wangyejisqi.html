@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+       table{
+       	margin: 15px auto;
+       	font-size: 22px;
+       	border:5px outset orange;
+       }
+       #tab-1,#tab-2,#tab-3{
+       	border:3px outset rgba(15,10,10,0.3);
+       }
+       input{
+       	outline: none;
+       	box-shadow: 5px 5px 2px rgba(100,100,100,0.8) inset;
+       }
+       [type=button]{
+       	width: 60px;
+       	height: 40px;
+       	border-radius: 5px;
+       	background: #fff;
+       }
+       #txtnum{
+       	text-align: right;
+       	height: 50px;
+       	width: 100%;
+       	background: #fff;
+       	font-size: 22px;
+       }
+       td{
+       	padding: 5px;
+       	background: #ccc;
+
+       }
+
+	</style>
+  <script type="text/javascript">
+    var Boo=false;
+    var result=0;
+    var ope;
+  	function $(id){
+  		return  document.getElementById(id)
+  	}
+  	function decimal(){
+  		var txt =$('txtnum');
+  		if (Boo) {
+  			txt.value='0';
+  		}else{
+  			if (txt.value.indexOf('.')==-1) {
+  				txt.value+='.';
+  			}
+  			
+  		}
+  		Boo=false;
+  	}
+  	function num(Num){
+  	  var txt=$('txtnum');
+  	  if(Boo){
+  	  	txt.value=Num;
+  	  	Boo=false;
+  	  }else{
+  	  	if (txt.value=='0') {
+  	  	txt.value=Num;
+  	  }else{
+  	  	txt.value+=Num;
+  	  }
+  	  }
+  	  
+  	  
+  	}
+  	function compute(op){
+  		var onum=$('txtnum').value;
+  		if (onum=='') {onum=0};
+  		Boo=true;
+  		switch(ope){
+  			case '+':
+  			result+=parseFloat(onum);break;
+  			case '-':
+  			result-=parseFloat(onum);break;
+  			case '*':
+  			result*=parseFloat(onum);break;
+  			case '/':
+  			result/=parseFloat(onum);break;
+  			case '=':
+  			result=parseFloat(onum);break;
+  			default:result=parseFloat(onum)
+  		}
+  		$('txtnum').value=result;
+  		ope=op;
+  	}
+  	    function back(){
+  	    	var txt=$('txtnum');
+  	    	txt.value=txt.value.substring(0,txt.value.length-1);
+  	    }
+
+  </script>
+
+
+</head>
+<body>
+	<table cellspacing="0">
+		<tr>
+			<td colspan="2"><input type="text" id="txtnum" value="0"></input></td>
+			<td>
+				<input type="button" value="清除" onclick="$('txtnum').value='';result=0">
+				<input type="button" value="退格" onclick="back()">
+			</td>
+			
+		</tr>
+		<tr>
+			<td>
+				<table id="tab-1">
+					<tr>
+						<td><input type="button" value="sin"></td>
+						<td><input type="button" value="cos"></td>
+						<td><input type="button" value="tan"></td>
+					</tr>
+					<tr>
+						<td><input type="button" value="asgin"></td>
+						<td><input type="button" value="acon"></td>
+						<td><input type="button" value="atan"></td>
+					</tr>
+					<tr>
+						<td><input type="button" value="PI"></td>
+						<td><input type="button" value="1/x"></td>
+						<td><input type="button" value="exp"></td>
+					</tr>
+					<tr>
+						<td><input type="button" value="inx"></td>
+						<td><input type="button" value="lgx"></td>
+						<td><input type="button" value="n!"></td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table id="tab-2">
+					<tr>
+						<td><input type="button" value="7" onclick="num(7)"></td>
+						<td><input type="button" value="8" onclick="num(8)"></td>
+						<td><input type="button" value="9" onclick="num(9)"></td>
+					</tr>
+					<tr>
+						<td><input type="button" value="4" onclick="num(4)"></td>
+						<td><input type="button" value="5" onclick="num(5)"></td>
+						<td><input type="button" value="6" onclick="num(6)"></td>
+					</tr>
+					<tr>
+						<td><input type="button" value="3" onclick="num(3)"></td>
+						<td><input type="button" value="2" onclick="num(2)"></td>
+						<td><input type="button" value="1" onclick="num(1)"></td>
+					</tr>
+					<tr>
+						<td><input type="button" value="0" onclick="num(0)"></td>
+						<td><input type="button" value="." onclick="decimal()"></td>
+						<td><input type="button" value="=" onclick="compute('=')"></td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table id="tab-3">
+					<tr>
+						<td><input type="button" value="+" onclick="compute('+')"></td>
+						<td><input type="button" value="取整"></td>
+					</tr>
+					<tr>
+						<td><input type="button" value="-" onclick="compute('-')"></td>
+						<td><input type="button" value="取余"></td>
+					</tr>
+					<tr>
+						<td><input type="button" value="*" onclick="compute('*')"></td>
+						<td><input type="button" value="x`y"></td>
+					</tr>
+					<tr>
+						<td><input type="button" value="/" onclick="compute('/')"></td>
+						<td><input type="button" value="+/-"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+      
+
+	</table>
+</body>
+</html>

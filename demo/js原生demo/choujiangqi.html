@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>座次表</title>
+		<meta charset="utf-8">
+		<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+			#donh{
+				font-size: 40px;
+				width: 40px;
+				height: 50px;
+				position: relative;
+				animation: wx 4s infinite;
+			}
+			p{
+				text-align: center;
+				font-size: 40px;
+				animation: ziti 2s infinite;
+			}
+			div{
+
+			}
+			table{
+				border:1px solid black;
+				width: 1000px;
+				height: 300px;
+				text-align: center;
+				margin:0 auto;
+				margin-top: 50px;
+				margin-bottom: 0px;
+			}
+			td:hover{
+				background-color: red;
+				cursor: pointer;
+			}
+			#anniu{
+				width: 300px;
+				height:60px;
+				margin: 0px auto;
+				//background: red;
+				margin-top: 0px;
+			}
+			#anniu input{
+				width: 100px;
+				height: 50px;
+			}
+			.tdBg{
+				background-color: red;
+			}
+			@keyframes ziti{
+				0%{
+					color: red;
+				}
+				35%{
+					color: green;
+				}
+				65%{
+					color: orange;
+				}
+				85%{
+					color: blue;
+				}
+				100%{
+					color: yellow;
+				}
+			}
+			@keyframes wx{
+				0%{
+					transform: rotate(0deg);left: 0px;
+				}
+				25%{
+					transform: rotate(90deg);left: 0px;
+				}
+				50%{
+					transform: rotate(0deg);left: 500px;
+				}
+				70%{
+					transform: rotate(0deg);left: 500px;
+				}
+				84%{
+					transform: scale(5);left: 800px;
+				}
+				100%{
+					transform: rotate(-360deg);left: 0px;
+				}
+			}
+		</style>
+		<script type="text/javascript">
+			var timer = "null";
+			function start(){
+				 //alert("要开始了");
+				timer = setInterval(function(){
+						var num = parseInt(Math.random()*42);
+					var allTd=document.getElementsByTagName("td");
+					for (var i = 0; i < allTd.length; i++) {
+						if (i==num) {
+							allTd[i].className="tdBg";
+						} else {
+							allTd[i].className="";
+						}
+						
+					}
+				}
+
+					,10);
+				
+			}
+			function end(){
+				clearInterval(timer);
+			}
+		</script>
+	</head>
+	<body>
+		<table border="1"  width="1000">
+			<tr>
+				<td></td><td></td><td></td><td></td><td></td><td rowspan="4">走<br>廊</td>
+				<td>钱华</td><td>康娜娜</td><td>黄亦渊</td><td>马庆元</td><td></td>
+			</tr>
+			<tr>
+				<td>刘杰</td><td>魏培芳</td><td>程鹏</td><td>王可可</td><td>曹敬</td>
+				<td>朱明洋</td><td>毛岗</td><td>王博</td><td>张国庆</td><td>潘世豪</td>
+			</tr>
+			<tr>
+				<td>黄倩倩</td><td>张凯</td><td>张坤</td><td>唐东权</td><td>范东东</td><td>夏思泽</td>
+				<td>于号山</td><td>熊仁龙</td><td>夏丽敏</td><td>史一良</td>
+			</tr>
+			<tr>
+				<td></td><td>陈兰</td><td>刘攀登</td><td>袁翔</td><td>李鑫</td>
+				<td>谢华强</td><td>焦浩</td><td>李亚丹</td><td>韩婷婷</td><td></td>
+			</tr>
+		</table><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;
+		<div id="anniu"> 
+			<input type="button" value="开始" onclick="start()">
+			<input type="button" value="结束" onclick="end()">
+		 </div> 
+
+		<p>随机抽取幸运观众奖励：5000000000000￥</p>
+		<div id="donh">😊</div>
+	</body>
+</html>
